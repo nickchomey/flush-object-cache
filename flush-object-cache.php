@@ -3,7 +3,7 @@
 add_action( 'admin_bar_menu', 'flush_objectcache_adminbar', 100 );
 function flush_objectcache_adminbar() {
     global $wp_admin_bar;
-    if ( ! is_user_logged_in() || ! is_admin_bar_showing() ) {
+    if ( ! is_user_logged_in() || ! is_admin_bar_showing() || ! is_plugin_active( 'redis-cache/redis-cache.php' )  ) {
         return false;
     }
     if ( ! is_admin() ) {
